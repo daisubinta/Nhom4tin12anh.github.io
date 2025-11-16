@@ -6,90 +6,152 @@
     <title>Nhóm 4 - 12 Anh</title>
 
     <style>
+        :root {
+            --primary: #007bff;
+            --primary-light: #4dabff;
+            --bg: #f4f7fb;
+            --card-bg: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #555;
+            --radius: 16px;
+            --shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
         body {
             font-family: "Segoe UI", Arial, sans-serif;
-            background: #eef3f8;
             margin: 0;
+            background: var(--bg);
+            color: var(--text-dark);
         }
 
         header {
-            background: linear-gradient(90deg, #0066ff, #00bbff);
+            background: linear-gradient(135deg, #007bff, #00b7ff);
             color: white;
             text-align: center;
-            padding: 40px 10px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            padding: 55px 15px;
+            box-shadow: var(--shadow);
         }
 
         header h1 {
             margin: 0;
-            font-size: 36px;
+            font-size: 40px;
+            font-weight: 700;
         }
 
         header p {
-            margin-top: 10px;
+            margin-top: 12px;
             font-size: 18px;
             opacity: 0.95;
         }
 
         .container {
             width: 85%;
+            max-width: 1100px;
             margin: auto;
-            padding: 30px 0;
+            padding: 40px 0;
         }
 
-        .intro-box, .member-box {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
+        .section-title {
+            font-size: 30px;
+            margin: 25px 0 10px 5px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .box, .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             margin-bottom: 25px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.25s;
         }
 
-        .member-box h2 {
-            color: #0066cc;
-            font-size: 28px;
-            margin-bottom: 20px;
+        .box:hover, .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.12);
         }
 
+        /* Member list */
         .member {
-            font-size: 24px;
-            font-weight: bold;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 12px 0;
+            border-bottom: 1px solid #eaeaea;
+            color: var(--text-light);
         }
 
         .member:last-child {
             border-bottom: none;
         }
 
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 15px 0;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: 0.2s;
+        /* Cards */
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        .card p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 16px;
         }
 
         .card a {
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 12px;
+            padding: 10px 18px;
+            background: var(--primary);
+            color: white;
             text-decoration: none;
-            font-weight: bold;
-            color: #0066ff;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .card a:hover {
+            background: var(--primary-light);
         }
 
         footer {
-            background: #dfe6ee;
+            background: #e7edf3;
             text-align: center;
-            padding: 15px;
-            margin-top: 30px;
+            padding: 18px;
+            margin-top: 40px;
             font-size: 14px;
+            color: var(--text-light);
+        }
+            
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .navbar a:hover {
+            opacity: 0.8;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .box, .card {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -97,6 +159,11 @@
 <body>
 
     <header>
+        <img src="logo.png" alt="Logo THPT Chuyên Bến Tre" style="width:90px;margin-bottom:10px;filter:drop-shadow(0 3px 4px rgba(0,0,0,0.2));">
+        <nav class="navbar">
+            <a href="#baitap">Bài tập</a>
+            <a href="#thuyettrinh">Thuyết trình</a>
+        </nav>
         <h1>Nhóm 4 – Lớp 12 Anh</h1>
         <p>Trang web tổng hợp các bài tập và bài thuyết trình của nhóm</p>
     </header>
@@ -104,14 +171,14 @@
     <div class="container">
 
         <!-- Xin chào -->
-        <div class="intro-box">
-            <h2>👋 Xin chào!</h2>
+        <div class="box">
+            <h2 class="section-title">👋 Xin chào!</h2>
             <p>Chào mừng bạn đến với trang web chính thức của <b>Nhóm 4 – 12 Anh</b>. Đây là nơi tổng hợp các bài tập, bài thuyết trình và sản phẩm học tập của nhóm.</p>
         </div>
 
-        <!-- Giới thiệu thành viên -->
-        <div class="member-box">
-            <h2>👥 Thành viên nhóm</h2>
+        <!-- Thành viên nhóm -->
+        <div class="box">
+            <h2 class="section-title">👥 Thành viên nhóm</h2>
 
             <div class="member">Huỳnh Ngọc</div>
             <div class="member">Nguyên Phương</div>
@@ -122,7 +189,7 @@
         </div>
 
         <!-- Danh sách bài tập -->
-        <h2>📚 Danh sách bài tập</h2>
+        <h2 id="baitap" class="section-title">📚 Danh sách bài tập</h2>
 
         <div class="card">
             <h3>Bài tập 1: (Nhập tiêu đề bài tập)</h3>
@@ -136,8 +203,8 @@
             <a href="#" target="_blank">Xem bài làm</a>
         </div>
 
-        <!-- Bài thuyết trình -->
-        <h2>🎤 Bài thuyết trình</h2>
+        <!-- Thuyết trình -->
+        <h2 id="thuyettrinh" class="section-title">🎤 Bài thuyết trình</h2>
 
         <div class="card">
             <h3>Thuyết trình: (Tên chủ đề)</h3>
