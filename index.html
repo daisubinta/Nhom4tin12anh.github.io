@@ -7,73 +7,81 @@
 
     <style>
         :root {
-            --primary: #007bff;
-            --primary-light: #4dabff;
-            --bg: #f4f7fb;
-            --card-bg: #ffffff;
-            --text-dark: #1a1a1a;
-            --text-light: #555;
+            --dark-blue: #000B58;
+            --blue: #003161;
+            --teal: #006A67;
+            --yellow: #FFF4B7;
+
+            --bg: var(--yellow);
+            --text-dark: #0b0b0b;
+            --card-bg: white;
             --radius: 16px;
-            --shadow: 0 6px 20px rgba(0,0,0,0.08);
+            --shadow: 0 6px 18px rgba(0,0,0,0.15);
         }
 
         body {
-            font-family: "Segoe UI", Arial, sans-serif;
             margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
             background: var(--bg);
-            color: var(--text-dark);
         }
 
+        /* Header */
         header {
-            background: linear-gradient(135deg, #007bff, #00b7ff);
+            background: linear-gradient(135deg, var(--dark-blue), var(--blue));
             color: white;
             text-align: center;
-            padding: 55px 15px 30px;
+            padding: 55px 20px 35px;
             box-shadow: var(--shadow);
         }
 
         header h1 {
-            margin: 0;
-            font-size: 40px;
+            font-size: 42px;
+            margin: 10px 0 5px;
             font-weight: 700;
         }
 
         header p {
-            margin-top: 12px;
             font-size: 18px;
-            opacity: 0.95;
+            opacity: 0.9;
         }
 
         /* Navbar */
         .navbar {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-bottom: 15px;
-            font-size: 18px;
+            gap: 32px;
+            margin-bottom: 20px;
         }
+
         .navbar a {
-            color: white;
+            color: #FFF4B7;
             text-decoration: none;
             font-weight: 600;
-            transition: 0.3s;
+            font-size: 18px;
+            padding: 6px 5px;
+            transition: .3s;
         }
+
         .navbar a:hover {
-            opacity: 0.8;
+            color: white;
+            transform: scale(1.07);
         }
 
         .container {
-            width: 85%;
+            width: 88%;
             max-width: 1100px;
             margin: auto;
-            padding: 40px 0;
+            padding: 45px 0;
         }
 
-        /* Thành viên (grid) */
-        #members-section {
-            padding: 45px 0 20px;
+        .section-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin: 10px 0 20px 5px;
         }
 
+        /* Member Cards */
         .members-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -82,108 +90,96 @@
 
         .member-card {
             background: var(--card-bg);
-            padding: 20px;
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            padding: 20px;
             text-align: center;
-            transition: 0.3s;
+            box-shadow: var(--shadow);
+            transition: 0.25s;
         }
 
         .member-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 26px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.2);
         }
 
         .member-card img {
-            width: 100%;
-            max-width: 140px;
-            height: 140px;
+            width: 130px;
+            height: 130px;
             object-fit: cover;
             border-radius: 50%;
-            margin-bottom: 12px;
-            border: 4px solid var(--primary-light);
+            border: 4px solid var(--teal);
+            margin-bottom: 10px;
         }
 
         .member-card h3 {
-            margin: 7px 0;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary);
+            margin: 10px 0;
+            color: var(--blue);
+            font-size: 19px;
         }
 
         .member-card a {
             display: inline-block;
-            margin-top: 10px;
             padding: 8px 14px;
-            background: var(--primary);
+            background: var(--teal);
             color: white;
-            text-decoration: none;
-            font-size: 14px;
             border-radius: 10px;
-            transition: 0.25s;
+            font-size: 14px;
+            text-decoration: none;
+            transition: .25s;
         }
 
         .member-card a:hover {
-            background: var(--primary-light);
+            background: var(--blue);
         }
 
-        /* Phần bài tập & thuyết trình */
-        .section-title {
-            font-size: 30px;
-            margin: 25px 0 10px 5px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
+        /* Cards (Bài tập / Thuyết trình) */
         .card {
-            background: var(--card-bg);
-            padding: 25px;
+            background: white;
+            padding: 22px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            margin-bottom: 25px;
-            transition: 0.25s;
+            margin-bottom: 22px;
+            transition: .3s;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
         }
 
         .card h3 {
+            margin: 0 0 8px;
+            color: var(--dark-blue);
             font-size: 22px;
-            margin-bottom: 8px;
-            font-weight: 700;
         }
 
         .card p {
-            margin: 0;
-            color: var(--text-light);
-            font-size: 16px;
+            color: #333;
+            font-size: 15px;
+            margin-bottom: 12px;
         }
 
         .card a {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 10px 18px;
-            background: var(--primary);
+            background: var(--blue);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            padding: 10px 18px;
             font-weight: 600;
+            border-radius: 8px;
             transition: 0.25s;
         }
 
         .card a:hover {
-            background: var(--primary-light);
+            background: var(--teal);
         }
 
+        /* Footer */
         footer {
-            background: #e7edf3;
+            background: var(--blue);
+            padding: 15px;
+            color: #FFF4B7;
             text-align: center;
-            padding: 18px;
-            margin-top: 40px;
+            margin-top: 35px;
             font-size: 14px;
-            color: var(--text-light);
         }
     </style>
 </head>
@@ -191,8 +187,8 @@
 <body>
 
 <header>
-    <img src="logo.png" alt="Logo THPT Chuyên Bến Tre" style="width:90px;margin-bottom:10px;filter:drop-shadow(0 3px 4px rgba(0,0,0,0.2));">
-    
+    <img src="logo.png" style="width:90px;filter:drop-shadow(0px 3px 4px rgba(0,0,0,0.2));">
+
     <nav class="navbar">
         <a href="#members-section">Thành viên</a>
         <a href="#baitap">Bài tập</a>
@@ -200,79 +196,76 @@
     </nav>
 
     <h1>Nhóm 4 – Lớp 12 Anh</h1>
-    <p>Trang web tổng hợp các bài tập và bài thuyết trình của nhóm</p>
+    <p>Trang web tổng hợp bài tập & thuyết trình của nhóm</p>
 </header>
 
 <div class="container">
 
-    <!-- ⭐ Giới thiệu thành viên -->
+    <!-- Thành viên -->
     <section id="members-section">
         <h2 class="section-title">👥 Thành viên nhóm</h2>
 
         <div class="members-grid">
-
             <div class="member-card">
-                <img src="member1.jpg" alt="Huỳnh Ngọc">
+                <img src="anh1.jpg">
                 <h3>Huỳnh Ngọc</h3>
-                <a href="gioi-thieu/ngoc.html" target="_blank">Xem trang cá nhân</a>
+                <a href="#">Trang cá nhân</a>
             </div>
 
             <div class="member-card">
-                <img src="member2.jpg" alt="Nguyên Phương">
+                <img src="anh2.jpg">
                 <h3>Nguyên Phương</h3>
-                <a href="gioi-thieu/phuong.html" target="_blank">Xem trang cá nhân</a>
+                <a href="#">Trang cá nhân</a>
             </div>
 
             <div class="member-card">
-                <img src="member3.jpg" alt="Minh Tú">
+                <img src="anh3.jpg">
                 <h3>Minh Tú</h3>
-                <a href="gioi-thieu/tu.html" target="_blank">Xem trang cá nhân</a>
+                <a href="#">Trang cá nhân</a>
             </div>
 
             <div class="member-card">
-                <img src="member4.jpg" alt="Kim Khánh">
+                <img src="anh4.jpg">
                 <h3>Kim Khánh</h3>
-                <a href="gioi-thieu/khanh.html" target="_blank">Xem trang cá nhân</a>
+                <a href="#">Trang cá nhân</a>
             </div>
 
             <div class="member-card">
-                <img src="member5.jpg" alt="Như Quyên">
+                <img src="anh5.jpg">
                 <h3>Như Quyên</h3>
-                <a href="gioi-thieu/quyen.html" target="_blank">Xem trang cá nhân</a>
+                <a href="#">Trang cá nhân</a>
             </div>
 
             <div class="member-card">
-                <img src="member6.jpg" alt="Đức Mạnh">
+                <img src="anh6.jpg">
                 <h3>Đức Mạnh</h3>
-                <a href="gioi-thieu/manh.html" target="_blank">Xem trang cá nhân</a>
+                <a href="#">Trang cá nhân</a>
             </div>
-
         </div>
     </section>
 
-    <!-- ⭐ Danh sách bài tập -->
-    <h2 id="baitap" class="section-title">📚 Danh sách bài tập</h2>
+    <!-- Bài tập -->
+    <h2 id="baitap" class="section-title">📚 Bài tập</h2>
 
     <div class="card">
-        <h3>Bài tập 1: (Nhập tiêu đề bài tập)</h3>
-        <p>Mô tả: (Nhập mô tả bài tập)</p>
-        <a href="#" target="_blank">Xem bài làm</a>
+        <h3>Bài tập 1: (Tên bài)</h3>
+        <p>(Mô tả ngắn bài tập…)</p>
+        <a href="#">Xem bài làm</a>
     </div>
 
     <div class="card">
-        <h3>Bài tập 2: (Nhập tiêu đề bài tập)</h3>
-        <p>Mô tả: (Nhập mô tả bài tập)</p>
-        <a href="#" target="_blank">Xem bài làm</a>
+        <h3>Bài tập 2: (Tên bài)</h3>
+        <p>(Mô tả ngắn bài tập…)</p>
+        <a href="#">Xem bài làm</a>
     </div>
 
-    <!-- ⭐ Thuyết trình -->
-    <h2 id="thuyettrinh" class="section-title">🎤 Bài thuyết trình</h2>
+    <!-- Thuyết trình -->
+    <h2 id="thuyettrinh" class="section-title">🎤 Thuyết trình</h2>
 
     <div class="card">
-        <h3>Thuyết trình: (Tên chủ đề)</h3>
-        <h3>Thuyết trình: (Tên chủ đề)</h3>
-        <p>Mô tả: (Thông tin ngắn về bài thuyết trình)</p>
-        <a href="https://www.canva.com/design/DAGz6sl2T0w/yOJDyYHJ2vVScoLq7e8w_g/edit" target="_blank">Xem bài thuyết trình</a>
+        <h3>Chủ đề: (Tên chủ đề)</h3>
+        <p>(Giới thiệu ngắn nội dung thuyết trình…)</p>
+        <a href="https://www.canva.com">Xem thuyết trình</a>
     </div>
 
 </div>
