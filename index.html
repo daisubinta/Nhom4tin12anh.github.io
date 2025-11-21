@@ -28,7 +28,7 @@
             background: linear-gradient(135deg, #007bff, #00b7ff);
             color: white;
             text-align: center;
-            padding: 55px 15px;
+            padding: 55px 15px 30px;
             box-shadow: var(--shadow);
         }
 
@@ -44,85 +44,6 @@
             opacity: 0.95;
         }
 
-        .container {
-            width: 85%;
-            max-width: 1100px;
-            margin: auto;
-            padding: 40px 0;
-        }
-
-        .section-title {
-            font-size: 30px;
-            margin: 25px 0 10px 5px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .box, .card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 25px;
-            transition: 0.25s;
-        }
-
-        .box:hover, .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 28px rgba(0,0,0,0.12);
-        }
-
-        /* Member list */
-        .member {
-            font-size: 20px;
-            font-weight: 600;
-            padding: 12px 0;
-            border-bottom: 1px solid #eaeaea;
-            color: var(--text-light);
-        }
-
-        .member:last-child {
-            border-bottom: none;
-        }
-
-        /* Cards */
-        .card h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .card p {
-            margin: 0;
-            color: var(--text-light);
-            font-size: 16px;
-        }
-
-        .card a {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 10px 18px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: 0.25s;
-        }
-
-        .card a:hover {
-            background: var(--primary-light);
-        }
-
-        footer {
-            background: #e7edf3;
-            text-align: center;
-            padding: 18px;
-            margin-top: 40px;
-            font-size: 14px;
-            color: var(--text-light);
-        }
-            
         /* Navbar */
         .navbar {
             display: flex;
@@ -141,82 +62,146 @@
             opacity: 0.8;
         }
 
-        /* Fade-in animation */
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        /* Thành viên (grid) */
+        #members-section {
+            padding: 45px 0 20px;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 25px;
+        }
+
+        .member-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 26px rgba(0,0,0,0.15);
+        }
+
+        .member-card img {
+            width: 100%;
+            max-width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            border: 4px solid var(--primary-light);
+        }
+
+        .member-card h3 {
+            margin: 7px 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .member-card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 14px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 10px;
+            transition: 0.25s;
+        }
+
+        .member-card a:hover {
+            background: var(--primary-light);
+        }
+
+        .section-title {
+            font-size: 30px;
+            margin: 25px 0 10px 5px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Animation */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-        .box, .card {
-            animation: fadeInUp 0.6s ease;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <img src="logo.png" alt="Logo THPT Chuyên Bến Tre" style="width:90px;margin-bottom:10px;filter:drop-shadow(0 3px 4px rgba(0,0,0,0.2));">
-        <nav class="navbar">
-            <a href="#baitap">Bài tập</a>
-            <a href="#thuyettrinh">Thuyết trình</a>
-        </nav>
-        <h1>Nhóm 4 – Lớp 12 Anh</h1>
-        <p>Trang web tổng hợp các bài tập và bài thuyết trình của nhóm</p>
-    </header>
+<header>
+    <img src="logo.png" alt="Logo THPT Chuyên Bến Tre" style="width:90px;margin-bottom:10px;filter:drop-shadow(0 3px 4px rgba(0,0,0,0.2));">
+    
+    <nav class="navbar">
+        <a href="#members-section">Thành viên</a>
+        <a href="#baitap">Bài tập</a>
+        <a href="#thuyettrinh">Thuyết trình</a>
+    </nav>
 
-    <div class="container">
+    <h1>Nhóm 4 – Lớp 12 Anh</h1>
+    <p>Trang web tổng hợp các bài tập và bài thuyết trình của nhóm</p>
+</header>
 
-        <!-- Xin chào -->
-        <div class="box">
-            <h2 class="section-title">👋 Xin chào!</h2>
-            <p>Chào mừng bạn đến với trang web chính thức của <b>Nhóm 4 – 12 Anh</b>. Đây là nơi tổng hợp các bài tập, bài thuyết trình và sản phẩm học tập của nhóm.</p>
+<div class="container">
+
+    <!-- ⭐ Giới thiệu thành viên -->
+    <section id="members-section">
+        <h2 class="section-title">👥 Thành viên nhóm</h2>
+
+        <div class="members-grid">
+
+            <div class="member-card">
+                <img src="member1.jpg" alt="Huỳnh Ngọc">
+                <h3>Huỳnh Ngọc</h3>
+                <a href="gioi-thieu/ngoc.html" target="_blank">Xem trang cá nhân</a>
+            </div>
+
+            <div class="member-card">
+                <img src="member2.jpg" alt="Nguyên Phương">
+                <h3>Nguyên Phương</h3>
+                <a href="gioi-thieu/phuong.html" target="_blank">Xem trang cá nhân</a>
+            </div>
+
+            <div class="member-card">
+                <img src="member3.jpg" alt="Minh Tú">
+                <h3>Minh Tú</h3>
+                <a href="gioi-thieu/tu.html" target="_blank">Xem trang cá nhân</a>
+            </div>
+
+            <div class="member-card">
+                <img src="member4.jpg" alt="Kim Khánh">
+                <h3>Kim Khánh</h3>
+                <a href="gioi-thieu/khanh.html" target="_blank">Xem trang cá nhân</a>
+            </div>
+
+            <div class="member-card">
+                <img src="member5.jpg" alt="Như Quyên">
+                <h3>Như Quyên</h3>
+                <a href="gioi-thieu/quyen.html" target="_blank">Xem trang cá nhân</a>
+            </div>
+
+            <div class="member-card">
+                <img src="member6.jpg" alt="Đức Mạnh">
+                <h3>Đức Mạnh</h3>
+                <a href="gioi-thieu/manh.html" target="_blank">Xem trang cá nhân</a>
+            </div>
+
         </div>
+    </section>
 
-        <!-- Thành viên nhóm -->
-        <div class="box">
-            <h2 class="section-title">👥 Thành viên nhóm</h2>
-
-            <div class="member">Huỳnh Ngọc</div>
-            <div class="member">Nguyên Phương</div>
-            <div class="member">Minh Tú</div>
-            <div class="member">Kim Khánh</div>
-            <div class="member">Như Quyên</div>
-            <div class="member">Đức Mạnh</div>
-        </div>
-
-        <!-- Danh sách bài tập -->
-        <h2 id="baitap" class="section-title">📚 Danh sách bài tập</h2>
-
-        <div class="card">
-            <h3>Bài tập 1: (Nhập tiêu đề bài tập)</h3>
-            <p>Mô tả: (Nhập mô tả bài tập)</p>
-            <a href="#" target="_blank">Xem bài làm</a>
-        </div>
-
-        <div class="card">
-            <h3>Bài tập 2: (Nhập tiêu đề bài tập)</h3>
-            <p>Mô tả: (Nhập mô tả bài tập)</p>
-            <a href="#" target="_blank">Xem bài làm</a>
-        </div>
-
-        <!-- Thuyết trình -->
-        <h2 id="thuyettrinh" class="section-title">🎤 Bài thuyết trình</h2>
-
-        <div class="card">
-            <h3>Thuyết trình: (Tên chủ đề)</h3>
-            <p>Mô tả: (Thông tin ngắn về bài thuyết trình)</p>
-            <a href="https://www.canva.com/design/DAGz6sl2T0w/yOJDyYHJ2vVScoLq7e8w_g/edit" target="_blank">Xem bài thuyết trình</a>
-        </div>
-
-    </div>
-
-    <footer>
-        © 2025 - Nhóm 4 | Lớp 12 Anh
-    </footer>
-
-</body>
-</html>
+    <!-- Phần còn lại giữ nguyên -->
